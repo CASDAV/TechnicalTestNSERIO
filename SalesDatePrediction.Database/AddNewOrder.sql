@@ -12,10 +12,11 @@ CREATE OR ALTER PROCEDURE NewOrder
     @ProductId INT,
     @UnitPrice MONEY,
     @Qty SMALLINT,
-    @Discount NUMERIC(4,3)
+    @Discount NUMERIC(4,3),
+    @NewOrderId INT OUTPUT
 AS
 BEGIN
-    DECLARE @NewOrderId INT;
+    SET NOCOUNT ON;
 
     BEGIN TRY
         BEGIN TRANSACTION;
