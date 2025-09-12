@@ -6,11 +6,11 @@ namespace SalesDatePrediction.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SalesDatePredictionController : ControllerBase
+    public class SystemController : ControllerBase
     {
         private readonly ApplicationServices _applicationServices;
 
-        public SalesDatePredictionController(ApplicationServices applicationServices)
+        public SystemController(ApplicationServices applicationServices)
         {
             _applicationServices = applicationServices;
         }
@@ -39,7 +39,7 @@ namespace SalesDatePrediction.API.Controllers
             return Ok(await _applicationServices.GetShippers());
         }
 
-        [HttpGet]
+        [HttpGet("Predictions")]
         public async Task<IActionResult> GetPredictions()
         {
             return Ok(await _applicationServices.GetPredictions());
